@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta PNP - Reporte Ciudadano</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a class="brand" href="/">Alerta PNP</a>
+            <nav class="nav">
+                <a class="nav__link" href="/dashboard">Panel PNP</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Reportar incidente</h2>
+        <form id="reporteForm" class="card form">
+            <div class="form__row">
+                <label for="tipo">Tipo de incidente</label>
+                <select id="tipo" required>
+                    <option value="">Selecciona...</option>
+                    <option value="Robo">Robo</option>
+                    <option value="Violencia">Violencia</option>
+                    <option value="Accidente">Accidente</option>
+                    <option value="Emergencia">Emergencia</option>
+                </select>
+            </div>
+            <div class="form__row">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" rows="4" maxlength="500" placeholder="Describe lo sucedido"
+                    required></textarea>
+            </div>
+            <div class="form__row">
+                <label for="foto">Evidencia (foto)</label>
+                <input id="foto" type="file" accept="image/*" capture="environment">
+                <button id="btnLimpiarFoto" type="button" class="button button--secondary" style="margin-top:8px">Limpiar imagen</button>
+            </div>
+            <div class="form__row grid-2">
+                <div>
+                    <label for="lat">Latitud</label>
+                    <input id="lat" type="text" readonly>
+                </div>
+                <div>
+                    <label for="lng">Longitud</label>
+                    <input id="lng" type="text" readonly>
+                </div>
+            </div>
+            <div class="form__row">
+                <button id="btnUbicacion" type="button" class="button button--secondary">Usar mi ubicación</button>
+            </div>
+            <div class="form__row">
+                <button type="submit" class="button">Enviar reporte</button>
+            </div>
+            <p id="msg" class="muted"></p>
+        </form>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+    <script src="/scripts/firebase.js"></script>
+    <script src="/scripts/ciudadano.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta PNP - Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <style>
+        #map { height: 380px; width: 100%; border-radius: 12px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a class="brand" href="/">Alerta PNP</a>
+            <nav class="nav">
+                <button id="btnSalir" class="button button--secondary">Salir</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container grid-2">
+        <section class="card">
+            <h2>Acceso PNP</h2>
+            <form id="loginForm" class="form">
+                <div class="form__row">
+                    <label for="email">Email institucional</label>
+                    <input id="email" type="email" autocomplete="username">
+                </div>
+                <div class="form__row">
+                    <label for="password">Contraseña</label>
+                    <input id="password" type="password" autocomplete="current-password">
+                </div>
+                <div class="form__row">
+                    <button type="submit" class="button">Ingresar</button>
+                </div>
+                <p id="loginMsg" class="muted"></p>
+            </form>
+        </section>
+        <section class="card">
+            <h2>Mapa de incidentes</h2>
+            <div id="map"></div>
+        </section>
+    </main>
+
+    <section class="container">
+        <div class="card">
+            <h2>Reportes en tiempo real</h2>
+            <div id="reportes" class="list--items"></div>
+        </div>
+    </section>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="/scripts/firebase.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="/scripts/dashboard.js"></script>
+</body>
+</html>
