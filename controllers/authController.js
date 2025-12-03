@@ -1,5 +1,9 @@
 const admin = require('firebase-admin');
-const serviceAccount = require('../firebase-service-account.json');
+
+// Usar variable de entorno en producción (Render), archivo local en desarrollo
+const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT 
+    ? JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)
+    : require('../firebase-service-account.json');
 
 if (!admin.apps.length) {
     admin.initializeApp({
